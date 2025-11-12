@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up — ePOD System</title>
+
+  <!-- External CSS file -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Descriptive metadata -->
+  <meta name="description" content="Sign Up page for the Electronic Proof of Delivery (ePOD) project — CPIS-358." />
+  <meta name="theme-color" content="#0b1220" />
+</head>
+
+<body>
+  <!-- ====================== HEADER ====================== -->
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html" aria-current="page">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ====================== MAIN CONTENT ====================== -->
+  <main id="top">
+    <section id="signup">
+      <h1>Create a New Account</h1>
+      <p>Please fill in the form below to register for ePOD access.</p>
+
+      <!-- Signup form -->
+      <form>
+        <label for="fullname">Full Name:</label><br>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="name@stu.kau.edu.sa" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required><br><br>
+
+        <label for="confirm">Confirm Password:</label><br>
+        <input type="password" id="confirm" name="confirm" placeholder="Re-enter your password" required><br><br>
+
+        <label>
+          <input type="checkbox" name="terms" required>
+          I agree to the <a href="#">terms and conditions</a>.
+        </label><br><br>
+
+        <input type="submit" value="Sign Up">
+        <input type="reset" value="Clear">
+      </form>
+
+      <p>Already have an account? <a href="login.html">Login here</a>.</p>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <a href="#top">Back to top</a> |
+    <a href="index.html">Back to Home</a>
+  </footer>
+</body>
+</html>

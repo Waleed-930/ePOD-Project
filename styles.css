@@ -1,0 +1,114 @@
+/* basic page style */
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: #222;
+}
+
+/* header and navigation */
+header {
+  background-color: #2b3a55;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin: 0 8px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+/* main content box */
+main {
+  background-color: white;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+/* headings */
+h1, h2 {
+  color: #2b3a55;
+}
+
+/* simple form style */
+form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin-top: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+  width: 95%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #aaa;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  background-color: #2b3a55;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* table style */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: left;
+}
+
+th {
+  background-color: #2b3a55;
+  color: white;
+}
+
+/* footer */
+footer {
+  background-color: #dfe0e2;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* small general classes */
+.rounded { border-radius: 5px; }
+.center { text-align: center; }
