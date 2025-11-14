@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Login — ePOD System</title>
 
-  <!-- External CSS file -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Descriptive metadata -->
-  <meta name="description" content="Login page for the Electronic Proof of Delivery (ePOD) project — CPIS-358." />
+  <meta name="description"
+        content="Login page for the Electronic Proof of Delivery (ePOD) project — CPIS-358." />
   <meta name="theme-color" content="#0b1220" />
 </head>
 
 <body>
-  <!-- ====================== HEADER ====================== -->
   <header>
     <nav aria-label="Main navigation">
       <ul>
@@ -26,36 +23,41 @@
     </nav>
   </header>
 
-  <!-- ====================== MAIN CONTENT ====================== -->
   <main id="top">
     <section id="login">
       <h1>Login to ePOD</h1>
       <p>Please enter your credentials to continue.</p>
 
-      <!-- Login form -->
-      <form>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" placeholder="name@stu.kau.edu.sa" required><br><br>
+      <form id="login-form" novalidate>
+        <label for="login-email">Email:</label>
+        <input type="email" id="login-email" name="email"
+               placeholder="name@stu.kau.edu.sa" required>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" placeholder="Enter your password" required><br><br>
+        <label for="login-password">Password:</label>
+        <input type="password" id="login-password" name="password"
+               placeholder="Enter your password" required>
 
-        <label>
+        <label class="inline">
           <input type="checkbox" name="remember"> Remember me
-        </label><br><br>
+        </label>
 
-        <input type="submit" value="Login">
-        <input type="reset" value="Clear">
+        <div class="form-actions">
+          <input type="submit" value="Login">
+          <input type="reset" value="Clear">
+        </div>
+
+        <p class="form-message" id="login-message"></p>
       </form>
-<!--if the user dont have acc-->
+
       <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
     </section>
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
   <footer>
     <a href="#top">Back to top</a> |
     <a href="index.html">Back to Home</a>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

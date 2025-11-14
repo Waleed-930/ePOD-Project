@@ -1,122 +1,166 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>ePOD — Proof of Delivery System</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ePOD — Digital Proof of Delivery</title>
 
-          <!-- External CSS file -->
-        <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description"
+        content="Electronic Proof of Delivery (ePOD) system — educational web project for CPIS-358. Stand-alone digital POD and signature tracking platform." />
+  <meta name="theme-color" content="#0b1220" />
+</head>
 
-        <!-- Descriptive metadata -->
-        <meta name="description" content="Electronic Proof of Delivery (ePOD) system — educational web project for CPIS-358." />
-        <meta name="theme-color" content="#0b1220" />
-    </head>
+<body>
+  <!-- ====================== HEADER ====================== -->
+  <header>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#dashboard">Dashboard Demo</a></li>
+        <li><a href="#new-order">New Order</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <body>
-        <!-- Header and main navigation -->
-        <header>
-            <nav aria-label="Main navigation">
-                <!-- list of page links --> 
-                <ul>
-                    <li>
-                        <a href="index.html" aria-current="page">Home</a>
-                    </li>
-        
-                    <li>
-        
-                        <a href="about.html">About Us</a>
-        
-                    </li>
-        
-                    <li>
-                        <a href="login.html">Login</a>
-                    </li>
-        
-                    <li>
-                        <a href="signup.html">Sign Up</a>
-                    </li>
-                    <!-- internal page links -->
-                    <!-- يوديك لجزء معين داخل الصفحة بناء على الرابط او الجزء الي تختاره -->    
-                    <li>
-            
-                        <a href="#features">Features</a>
-            
-                    </li>
-        
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </ى> 
-        </header>
+  <!-- ====================== MAIN CONTENT ====================== -->
+  <main id="top">
+    <!-- Hero Section -->
+    <section id="hero">
+      <h1>Electronic Proof of Delivery (ePOD)</h1>
+      <p>
+        A stand-alone digital platform that replaces paper-based proof-of-delivery
+        with secure electronic signatures, order tracking, and simple performance dashboards.
+      </p>
+      <p class="hero-note">
+        This is a <strong>CPIS-358 educational project</strong> that simulates how a real ePOD
+        system could work using HTML, CSS, and JavaScript only.
+      </p>
+      <a class="btn-primary" href="login.html">Go to Login</a>
+      <a class="btn-secondary" href="signup.html">Create an Account</a>
+    </section>
 
-    
-        <!-- Main content -->
-    
-        <main id="top">
-    
-            <!-- Hero Section -->
-    
-            <section id="hero">
-    
-                <h1>Electronic Proof of Delivery (ePOD)</h1>
-    
-                <p>
-                A lightweight educational web project that simulates a digital proof-of-delivery and signature
-    
-                system integrated with SAP logistics workflow.
-    
-            </p>
-    
-            <!-- later: add hero image + image map linking to about.html -->
-    
-        </section>
+    <!-- Features Section -->
+    <section id="features">
+      <h2>Key Features (Concept)</h2>
+      <ul>
+        <li>Salesperson or driver can enter or upload sales orders into the system.</li>
+        <li>System generates a digital Proof-of-Delivery (POD) for each order.</li>
+        <li>Customer reviews items and approves using an electronic signature.</li>
+        <li>Signed POD is stored as a secure record with signature, timestamp, and hash.</li>
+        <li>Dashboard shows POD completion by salesperson / customer and pending deliveries.</li>
+        <li>Automated reminders are sent for PODs that are not yet signed.</li>
+      </ul>
+      <p class="small-note">
+        In this first version, all logic is simulated in the browser with JavaScript only.
+      </p>
+    </section>
 
+    <!-- Demo Dashboard Section (JavaScript will fill data) -->
+    <section id="dashboard">
+      <h2>Demo Delivery Dashboard</h2>
+      <p>
+        The table below shows a <strong>simulated list of deliveries</strong>.
+        JavaScript calculates how many PODs are pending vs. signed.
+      </p>
 
-        
-        <!-- Features Section -->
-        
-        <section id="features">
-        
-            <h2>Key Features</h2>
-        
-            <ul>        
-                <li>
-                    Capture customer signature on delivery using digital pad.
-                </li>
-        
-                <li>
-                    Generate secure PDF and attach it to SAP delivery document.
-                </li>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span id="stat-total" class="stat-number">0</span>
+          <span class="stat-label">Total Orders</span>
+        </div>
+        <div class="stat-card">
+          <span id="stat-signed" class="stat-number">0</span>
+          <span class="stat-label">Signed PODs</span>
+        </div>
+        <div class="stat-card">
+          <span id="stat-pending" class="stat-number">0</span>
+          <span class="stat-label">Pending PODs</span>
+        </div>
+      </div>
 
-                <li>
-                    Provide live compliance dashboard and delivery alerts.
-                </li>
-            </ul>
-        
-        </section>
+      <div class="filter-row">
+        <label for="statusFilter">Filter by status:</label>
+        <select id="statusFilter">
+          <option value="all">All</option>
+          <option value="Signed">Signed</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
 
-        <!-- Contact Section -->
-         
-        <section id="contact">
-            <h2>Contact</h2>
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Order #</th>
+            <th>Customer</th>
+            <th>Salesperson</th>
+            <th>Status</th>
+            <th>Action</th> <!-- new column -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JavaScript will insert rows here -->
+        </tbody>
+      </table>
+    </section>
 
-            <p>
-                For demonstration or academic purposes, please reach out to the project contributors through
-                the GitHub repository once published.
-            </p>
-            <!-- later: simple contact form (for JS validation exercise) -->
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <small>
-            &copy; <span id="year"></span> ePOD — Educational project for CPIS-358.
-        </small>
-        <a href="#top">Back to top</a>
-    </footer>
+    <!-- New Order Form (add simulated deliveries) -->
+    <section id="new-order">
+      <h2>Create New Order (Demo)</h2>
+      
 
+      <form id="order-form" novalidate>
+        <label for="order-id">Order Number:</label>
+        <input type="text" id="order-id" name="order-id"
+               placeholder="SO1005" required>
 
-    </body>
+        <label for="order-customer">Customer Name:</label>
+        <input type="text" id="order-customer" name="order-customer"
+               placeholder="Customer Name" required>
+
+        <label for="order-salesperson">Salesperson:</label>
+        <input type="text" id="order-salesperson" name="order-salesperson"
+               placeholder="Salesperson Name" required>
+
+        <label for="order-status">Initial Status:</label>
+        <select id="order-status" name="order-status">
+          <option value="Pending">Pending</option>
+          <option value="Signed">Signed</option>
+        </select>
+
+        <div class="form-actions">
+          <input type="submit" value="Add Order">
+          <input type="reset" value="Clear">
+        </div>
+
+        <p class="form-message" id="order-message"></p>
+      </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For academic questions about this project, please contact the team members listed on the
+        <a href="about.html">About Us</a> page or reach out through the GitHub repository.
+      </p>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <small>
+      &copy; <span id="year"></span> ePOD — CPIS-358 educational project.
+    </small>
+    <br />
+    <a href="#top">Back to top</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>

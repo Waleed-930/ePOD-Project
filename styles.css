@@ -21,13 +21,14 @@ nav ul {
 }
 
 nav li {
-  display: inline;
+  display: inline-block;
   margin: 0 8px;
 }
 
 nav a {
   color: white;
   text-decoration: none;
+  font-size: 0.95rem;
 }
 
 nav a:hover,
@@ -39,37 +40,84 @@ nav a[aria-current="page"] {
 main {
   background-color: white;
   width: 90%;
-  max-width: 800px;
+  max-width: 900px;
   margin: 20px auto;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #ccc;
 }
 
 /* headings */
-h1, h2 {
+h1,
+h2 {
   color: #2b3a55;
+}
+
+#hero {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.hero-note {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* buttons */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 10px 6px 0 0;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: #2b3a55;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #2b3a55;
+  border: 1px solid #2b3a55;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 0.9;
 }
 
 /* simple form style */
 form {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 15px;
+  border-radius: 4px;
 }
 
 label {
   display: block;
-  margin-top: 8px;
+  margin-top: 10px;
+}
+
+label.inline {
+  display: inline-block;
+  margin-top: 12px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="tel"] {
-  width: 95%;
-  padding: 10px;
+input[type="tel"],
+select {
+  width: 100%;
+  padding: 8px;
   margin-top: 4px;
   border: 1px solid #aaa;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
 
 input[type="submit"],
@@ -77,9 +125,29 @@ input[type="reset"] {
   background-color: #2b3a55;
   color: white;
   border: none;
-  padding: 8px 12px;
-  margin-top: 10px;
+  padding: 8px 16px;
+  margin-top: 12px;
+  margin-right: 8px;
   cursor: pointer;
+  border-radius: 3px;
+}
+
+input[type="reset"] {
+  background-color: #999;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  opacity: 0.9;
+}
+
+.form-actions {
+  margin-top: 10px;
+}
+
+.form-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
 }
 
 /* table style */
@@ -89,7 +157,8 @@ table {
   margin-top: 10px;
 }
 
-th, td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 6px;
   text-align: left;
@@ -100,15 +169,108 @@ th {
   color: white;
 }
 
-/* footer */
-footer {
-  background-color: #dfe0e2;
-  color: white;
+/* dashboard stats */
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 15px;
+}
+
+.stat-card {
+  flex: 1 1 120px;
+  background-color: #f9fafb;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 10px;
   text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.filter-row {
+  margin: 10px 0;
+  font-size: 0.95rem;
 }
 
 /* small general classes */
-.rounded { border-radius: 5px; }
-.center { text-align: center; }
+.small-note {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* footer */
+footer {
+  background-color: #dfe0e2;
+  color: #333;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+  font-size: 0.85rem;
+}
+
+footer a {
+  color: #2b3a55;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* helpers */
+.rounded {
+  border-radius: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  nav li {
+    display: block;
+    margin: 4px 0;
+  }
+
+  main {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .stats-grid {
+    flex-direction: column;
+  }
+}
+
+/* button inside table */
+.btn-sign {
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  border-radius: 3px;
+  border: none;
+  background-color: #16a34a; /* green */
+  color: white;
+  cursor: pointer;
+}
+
+.btn-sign:hover {
+  opacity: 0.9;
+}
+
+.signed-label {
+  font-size: 0.85rem;
+  color: #16a34a;
+  font-weight: bold;
+}
+
