@@ -1,89 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ePOD — Digital Proof of Delivery</title>
 
   <link rel="stylesheet" href="styles.css" />
   <meta name="description"
-        content="Electronic Proof of Delivery (ePOD) system — educational web project for CPIS-358. Stand-alone digital POD and signature tracking platform." />
+        content="Electronic Proof of Delivery (ePOD) system." />
   <meta name="theme-color" content="#0b1220" />
+
+  <style>
+    .highlight-box {
+      background-color: #fffbe6;
+      border-left: 4px solid #f59e0b;
+      padding: 6px 10px;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- ====================== HEADER ====================== -->
-<!--the header contains the links of the web pages so the user can go from one page to another-->
   <header>
-    <nav><!--we use <nav> because we have a group of links in a list for moving between the pages-->
-
-      <ul><!-- Unordered list that has items (page links) -->
-        <li><a href="index.html" aria-current="page">Home</a></li><!--home page aria-current="page" means that you are on this page -->
-        <li><a href="about.html">About Us</a></li><!--about Us page-->
-        <li><a href="login.html">Login</a></li><!--login page-->
-        <li><a href="signup.html">Sign Up</a></li><!--sign Up page-->
-        <li><a href="#features">Features</a></li><!--features link in the home page to go directly to the features section-->
-        <li><a href="#dashboard">Dashboard Demo</a></li><!--dashboard link in the home page to go directly to the dashboard section-->
-        <li><a href="#new-order">New Order</a></li><!--new Order link in the home page to go directly to the new Order section-->
-        <li><a href="#contact">Contact</a></li><!--contact link in the home page to go directly to the contact section-->
+    <nav>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#dashboard">Dashboard Demo</a></li>
+        <li><a href="#new-order">New Order</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ====================== MAIN CONTENT ====================== -->
-  <main id="top"><!--the main section contains the contents of the page-->
-    <!-- Hero Section -->
-    <section id="hero"><!--this is the first section the user will see,so we give an introduction in it-->
-      <h1>Electronic Proof of Delivery (ePOD)</h1><!--that is a head for the paragraph-->
-      <p><!--that is the first paragraph that taok aout the project-->
+  <main id="top">
+    <section id="hero">
+      <h1 id="hero-title">Electronic Proof of Delivery (ePOD)</h1>
+      <p>
         A stand-alone digital platform that replaces paper-based proof-of-delivery
-        with secure electronic signatures, order tracking, and simple performance dashboards.
+        with simple electronic signatures, order tracking, and small performance dashboards.
       </p>
-      <p class="hero-note"><!--that is the second paragraph that taki about why we did this project-->
-        This is a <strong>CPIS-358 educational project</strong> that simulates how a real ePOD
-        system could work using HTML, CSS, and JavaScript only.
-      </p>
-      <a class="btn-primary" href="login.html">Go to Login</a><!--link to go to the login page-->
-      <a class="btn-secondary" href="signup.html">Create an Account</a><!--link to go to the singup page and do a new acc-->
+      <div class="highlight-box">
+        This is a <strong>CPIS-358 educational project</strong>. It shows how a delivery company
+        can move from paper forms to a basic web system using only HTML, CSS and JavaScript.
+      </div>
+      <a class="btn-primary" href="login.html">Go to Login</a>
+      <a class="btn-secondary" href="signup.html">Create an Account</a>
     </section>
 
-    <figure><!--this is figuer tag we use it to add imges in it-->
-      <!--this is the image
-      if the image does not exist it will show "About the ePOD Project"
-      the width is 500 and the height is 500
-      -->
-  <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
-    <img src="epod-1.png" 
-    alt="About the ePOD Project"
-    width="500"
-    height="500">
-  </a>
-  <figcaption><!--that tag will add descrip for the imgae in the caption(under the imege) it a note for the imge-->
-    <em>Click the image to learn more about the project.</em><!--em is used to make the text styled with emphasis-->
-  </figcaption>
-</figure>
+    <figure>
+      <img src="epod-1.png"
+           id="project-image"
+           alt="ePOD dashboard replacing old delivery forms"
+           width="500"
+           height="500"
+           usemap="#epodMap">
+      <map name="epodMap">
+        <area shape="rect" coords="0,0,500,500" href="about.html" alt="About the ePOD Project">
+      </map>
+      <figcaption id="project-caption">
+        <em>Click anywhere on the picture to open the About Us page.</em>
+      </figcaption>
+      <p>
+        <button type="button" onclick="explainPicture()">Explain the picture</button>
+      </p>
+    </figure>
 
-
-
-    <!-- Features Section -->
-     <!--in this section we show the key features in an unordered list-->
     <section id="features">
-      <h2>Key Features (Concept)</h2> 
+      <h2>Key Features (Concept)</h2>
       <ul>
-        <li>Salesperson or driver can enter or upload sales orders into the system.</li>
+        <li>Salesperson or driver can enter sales orders into the system.</li>
         <li>System generates a digital Proof-of-Delivery (POD) for each order.</li>
-        <li>Customer reviews items and approves using an electronic signature.</li>
-        <li>Signed POD is stored as a secure record with signature, timestamp, and hash.</li>
+        <li>Customer reviews items and approves with an electronic signature.</li>
+        <li>Signed POD is stored as a record with signature, timestamp, and hash (concept).</li>
         <li>Dashboard shows POD completion by salesperson / customer and pending deliveries.</li>
-        <li>Automated reminders are sent for PODs that are not yet signed.</li>
       </ul>
-      <p class="small-note"><!--small-note is a CSS style that makes the text smaller-->
-        In this first version, all logic is simulated in the browser with JavaScript only.
+      <p class="small-note">
+        In this first version, everything is simulated in the browser with JavaScript only.
       </p>
     </section>
 
-    <!-- Demo Dashboard Section (JavaScript will fill data) -->
-    <!--in this section we will use the table as a dashboard it will countes(Total Orders,Signed PODs,Pending PODs)-->
     <section id="dashboard">
       <h2>Demo Delivery Dashboard</h2>
       <p>
@@ -108,7 +107,7 @@
 
       <div class="filter-row">
         <label for="statusFilter">Filter by status:</label>
-        <select id="statusFilter">
+        <select id="statusFilter" onchange="renderDashboard()">
           <option value="all">All</option>
           <option value="Signed">Signed</option>
           <option value="Pending">Pending</option>
@@ -122,22 +121,19 @@
             <th>Customer</th>
             <th>Salesperson</th>
             <th>Status</th>
-            <th>Action</th> <!-- new column -->
+            <th>Action</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- JavaScript will insert rows here -->
+        <tbody id="orders-body">
         </tbody>
       </table>
     </section>
 
-    <!-- New Order Form (add simulated deliveries) -->
     <section id="new-order">
       <h2>Create New Order (Demo)</h2>
-      
 
-      <form id="order-form" novalidate>
-      <!--in this form we use placeholder to show an example inside the input box, and type for each input, and required for the fields that must not be skipped, and name for each item-->
+
+      <form id="order-form" onsubmit="return addOrder();" onreset="clearOrderMessage();" novalidate>
         <label for="order-id">Order Number:</label>
         <input type="text" id="order-id" name="order-id"
                placeholder="SO1005" required>
@@ -149,25 +145,22 @@
         <label for="order-salesperson">Salesperson:</label>
         <input type="text" id="order-salesperson" name="order-salesperson"
                placeholder="Salesperson Name" required>
-        <!-- in this field we use a select input so the user can choose the initial status, there are 2 options-->
+
         <label for="order-status">Initial Status:</label>
         <select id="order-status" name="order-status">
           <option value="Pending">Pending</option>
           <option value="Signed">Signed</option>
         </select>
 
-        <!--we use div to keep the buttons in the same block for the css style-->
         <div class="form-actions">
-          <input type="submit" value="Add Order"><!--this is the submit button and it will show Add Order-->
-          <input type="reset" value="reset"><!--this is the reset button and it will show reset-->
+          <input type="submit" value="Add Order">
+          <input type="reset" value="Reset">
         </div>
 
-        <p class="form-message" id="order-message"></p><!--this paragraph will show success or error messages using js-->
+        <p class="form-message" id="order-message"></p>
       </form>
     </section>
 
-    <!-- Contact Section -->
-     <!--it a paragraph that has a link in it to go to about page-->
     <section id="contact">
       <h2>Contact</h2>
       <p>
@@ -177,23 +170,154 @@
     </section>
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
   <footer>
     <small>
       &copy; <span id="year"></span> ePOD — CPIS-358 educational project.
     </small>
     <br />
-    <!--The address tag contains the contact information, inline CSS styling,
-     and anchor tags so the user can click the email to send a message-->
-     <address style="font-family: 'Courier New', Courier, monospace;">
-      
-       Contact us at <a href="mailto:wallehaibi0001@stu.kau.edu.sa">wallehaibi0001@stu.kau.edu.sa</a><br>
-       <a href="mailto:sdalati@stu.kau.edu.sa">sdalati@stu.kau.edu.sa</a>
- </address><br>
- <!--go back to the top of the page using the id top-->
+    <address style="font-family: 'Courier New', Courier, monospace;">
+      Contact us at
+      <a href="mailto:wallehaibi0001@stu.kau.edu.sa">wallehaibi0001@stu.kau.edu.sa</a><br>
+      <a href="mailto:sdalati@stu.kau.edu.sa">sdalati@stu.kau.edu.sa</a>
+    </address><br>
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="app.js"></script>
+  <script>
+    var orders = [
+      ["S1", "A", "Ali", "Signed"],
+      ["S2", "B", "Ahmad", "Pending"],
+      ["S3", "C", "Ali", "Signed"],
+      ["S4", "D", "Mohammed", "Pending"]
+    ];
+
+    function updateYear() {
+      var span = document.getElementById("year");
+      if (span) {
+        var today = new Date();
+        span.innerHTML = today.getFullYear();
+      }
+    }
+
+    function explainPicture() {
+      var caption = document.getElementById("project-caption");
+      var image = document.getElementById("project-image");
+      caption.innerHTML =
+        "This picture shows how ePOD replaces old paper delivery forms with a simple web dashboard.";
+      caption.style.color = "#1d4ed8";
+      image.style.border = "3px solid #1d4ed8";
+    }
+
+    function renderDashboard() {
+      var tbody = document.getElementById("orders-body");
+      var filterSelect = document.getElementById("statusFilter");
+      var filterValue = filterSelect.value;
+
+      tbody.innerHTML = "";
+
+      var total = orders.length;
+      var signed = 0;
+      var pending = 0;
+      var i;
+
+      for (i = 0; i < orders.length; i++) {
+        var order = orders[i];
+        var status = order[3];
+
+        if (status === "Signed") {
+          signed++;
+        }
+        if (status === "Pending") {
+          pending++;
+        }
+
+        if (filterValue !== "all" && status !== filterValue) {
+          continue;
+        }
+
+        var rowHtml =
+          "<tr>" +
+          "<td>" + order[0] + "</td>" +
+          "<td>" + order[1] + "</td>" +
+          "<td>" + order[2] + "</td>" +
+          "<td>" + status + "</td>";
+
+        if (status === "Pending") {
+          rowHtml +=
+            "<td><button type=\"button\" class=\"btn-sign\" " +
+            "onclick=\"signOrder('" + order[0] + "')\">Sign</button></td>";
+        } else {
+          rowHtml += "<td><span class=\"signed-label\">Signed</span></td>";
+        }
+
+        rowHtml += "</tr>";
+
+        tbody.innerHTML += rowHtml;
+      }
+
+      document.getElementById("stat-total").innerHTML = total;
+      document.getElementById("stat-signed").innerHTML = signed;
+      document.getElementById("stat-pending").innerHTML = pending;
+    }
+
+    function signOrder(orderId) {
+      var i;
+      for (i = 0; i < orders.length; i++) {
+        if (orders[i][0] === orderId) {
+          if (orders[i][3] === "Pending") {
+            var ok = confirm("Simulate customer signature for order " + orderId + "?");
+            if (ok) {
+              orders[i][3] = "Signed";
+            }
+          }
+        }
+      }
+      renderDashboard();
+    }
+
+    function addOrder() {
+      var id = document.getElementById("order-id").value;
+      var customer = document.getElementById("order-customer").value;
+      var salesperson = document.getElementById("order-salesperson").value;
+      var statusSelect = document.getElementById("order-status");
+      var status = statusSelect.value;
+      var msg = document.getElementById("order-message");
+
+      if (id === "" || customer === "" || salesperson === "") {
+        msg.innerHTML = "Please complete all fields.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      var i;
+      for (i = 0; i < orders.length; i++) {
+        if (orders[i][0] === id) {
+          msg.innerHTML = "This order number already exists.";
+          msg.style.color = "red";
+          return false;
+        }
+      }
+
+      orders.push([id, customer, salesperson, status]);
+
+      msg.innerHTML = "Order added successfully. It now appears in the dashboard.";
+      msg.style.color = "green";
+
+      document.getElementById("order-form").reset();
+      document.getElementById("order-status").value = "Pending";
+      renderDashboard();
+      return false;
+    }
+
+    function clearOrderMessage() {
+      var msg = document.getElementById("order-message");
+      msg.innerHTML = "";
+    }
+
+    window.onload = function () {
+      updateYear();
+      renderDashboard();
+    };
+  </script>
 </body>
 </html>

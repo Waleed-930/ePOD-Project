@@ -1,4 +1,4 @@
-/* basic page style */
+/* page style */
 body {
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
@@ -12,6 +12,9 @@ header {
   color: white;
   text-align: center;
   padding: 10px 0;
+  position: relative;  
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
 }
 
 nav ul {
@@ -36,7 +39,7 @@ nav a[aria-current="page"] {
   text-decoration: underline;
 }
 
-/* main content box */
+/* main content*/
 main {
   background-color: white;
   width: 90%;
@@ -44,6 +47,8 @@ main {
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #ccc;
+  position: relative;
+  z-index: 1;
 }
 
 /* headings */
@@ -59,6 +64,22 @@ h2 {
 
 .hero-note {
   font-size: 0.95rem;
+  color: #555;
+}
+
+/* figure */
+figure {
+  margin: 10px 0 20px;
+  text-align: center;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+}
+
+figcaption {
+  font-size: 0.85rem;
   color: #555;
 }
 
@@ -89,7 +110,7 @@ h2 {
   opacity: 0.9;
 }
 
-/* simple form style */
+/* form */
 form {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
@@ -121,7 +142,8 @@ select {
 }
 
 input[type="submit"],
-input[type="reset"] {
+input[type="reset"],
+button {
   background-color: #2b3a55;
   color: white;
   border: none;
@@ -130,6 +152,7 @@ input[type="reset"] {
   margin-right: 8px;
   cursor: pointer;
   border-radius: 3px;
+  font-size: 0.9rem;
 }
 
 input[type="reset"] {
@@ -137,7 +160,8 @@ input[type="reset"] {
 }
 
 input[type="submit"]:hover,
-input[type="reset"]:hover {
+input[type="reset"]:hover,
+button:hover {
   opacity: 0.9;
 }
 
@@ -150,7 +174,7 @@ input[type="reset"]:hover {
   font-size: 0.9rem;
 }
 
-/* table style */
+/* table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -169,7 +193,7 @@ th {
   color: white;
 }
 
-/* dashboard stats */
+/* dashboard */
 .stats-grid {
   display: flex;
   flex-wrap: wrap;
@@ -203,7 +227,7 @@ th {
   font-size: 0.95rem;
 }
 
-/* small general classes */
+/* class */
 .small-note {
   font-size: 0.85rem;
   color: #555;
@@ -228,7 +252,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* helpers */
+/* 1 */
 .rounded {
   border-radius: 5px;
 }
@@ -237,6 +261,7 @@ footer a:hover {
   text-align: center;
 }
 
+/* 2 */
 @media (max-width: 600px) {
   nav li {
     display: block;
@@ -253,13 +278,13 @@ footer a:hover {
   }
 }
 
-/* button inside table */
+/* button in table */
 .btn-sign {
   padding: 4px 8px;
   font-size: 0.85rem;
   border-radius: 3px;
   border: none;
-  background-color: #16a34a; /* green */
+  background-color: #16a34a;
   color: white;
   cursor: pointer;
 }
@@ -273,4 +298,3 @@ footer a:hover {
   color: #16a34a;
   font-weight: bold;
 }
-

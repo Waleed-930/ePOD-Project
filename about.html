@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
+
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About Us — ePOD System</title>
 
   <link rel="stylesheet" href="styles.css" />
-  <meta name="description"
-        content="About page for the Electronic Proof of Delivery (ePOD) project — digital proof-of-delivery and signature tracking system." />
+  <meta name="description" content="About page for the Electronic Proof of Delivery (ePOD) project." />
   <meta name="theme-color" content="#0b1220" />
 </head>
 
 <body>
-  <!-- ====================== HEADER ====================== -->
   <header>
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" aria-current="page">About Us</a></li><!--aria-current="page" means that you are on this page-->
+        <li><a href="about.html" aria-current="page">About Us</a></li>
         <li><a href="login.html">Login</a></li>
         <li><a href="signup.html">Sign Up</a></li>
-        <li><a href="#mission">Mission</a></li>
-        <li><a href="#team">Team</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ====================== MAIN CONTENT ====================== -->
   <main id="top">
-    <!-- INTRO SECTION -->
+    <figure>
+      <img src="epod-1.png" alt="ePOD dashboard with paper forms removed" width="500" height="500"
+        usemap="#epodMapAbout">
+      <map name="epodMapAbout">
+        <area shape="rect" coords="0,0,500,500" href="about.html" alt="About this project">
+      </map>
+      <figcaption>
+        <em>The picture represents the move from old delivery forms to the ePOD system.</em>
+      </figcaption>
+    </figure>
+
     <section id="intro">
       <h1>About the ePOD Project</h1>
       <p>
@@ -39,29 +44,28 @@
       </p>
     </section>
 
-    <!-- MISSION SECTION -->
     <section id="mission">
       <h2>Project Objectives</h2>
       <ul>
         <li>Digitize and simplify the delivery confirmation process.</li>
         <li>Reduce paperwork and disputes between customers and sales teams.</li>
         <li>Improve tracking, accountability, and reporting of deliveries.</li>
-        <li>Provide dashboards that show POD completeness and pending signatures.</li>
+        <li>Provide small dashboards that show POD completeness and pending signatures.</li>
       </ul>
       <p>
         In this first version, the system is <strong>stand-alone</strong>. Orders are entered manually
-        or loaded from an Excel file, and signed PODs are stored as digital records.
+        , and signed PODs are stored as digital records.
         Later, the concept can be extended to integrate with ERP systems such as SAP.
       </p>
     </section>
 
-    <!-- TEAM SECTION -->
     <section id="team">
       <h2>Meet the Team</h2>
       <p>
         This project is developed by a student group from the Faculty of Computing and
         Information Technology, King Abdulaziz University.
       </p>
+
 
       <table>
         <thead>
@@ -87,17 +91,14 @@
           </tr>
         </tbody>
       </table>
-
-
     </section>
   </main>
 
-  <!-- ====================== FOOTER ====================== -->
   <footer>
     <a href="#top">Back to top</a><br />
     <a href="index.html">Back to Home</a>
   </footer>
 
-  <script src="app.js"></script>
 </body>
+
 </html>

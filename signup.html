@@ -1,86 +1,146 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sign Up — ePOD System</title>
 
   <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Sign Up page for the Electronic Proof of Delivery (ePOD) project — CPIS-358." />
+  <meta name="description" content="Sign Up page for the Electronic Proof of Delivery (ePOD) project." />
   <meta name="theme-color" content="#0b1220" />
 </head>
 
 <body>
   <header>
-    <nav>    <!--these are the page links inside an unordered list-->
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html" aria-current="page">Sign Up</a></li><!--aria-current="page" means that you are on this page-->
+        <li><a href="signup.html" aria-current="page">Sign Up</a></li>
       </ul>
     </nav>
   </header>
 
-<!--the main section contains the contents of the page-->
   <main id="top">
-    <section id="signup">  <!--this is the singup section-->
-      <h1>Create a New Account</h1><!--to make the user know that from ther you will create an acc-->
-      <p>Please fill in the form below to register for ePOD access.</p><!--order the user to fill the form-->
+    <figure>
+      <img src="epod-1.png"
+           alt="ePOD signup page concept"
+           width="400"
+           height="400"
+           usemap="#epodMapSignup">
+      <map name="epodMapSignup">
+        <area shape="rect" coords="0,0,400,400" href="about.html" alt="About the project">
+      </map>
+      <figcaption>
+        <em>Image of the ePOD idea. Click to open About Us.</em>
+      </figcaption>
+    </figure>
 
-      <form id="signup-form" novalidate>
+    <section id="signup">
+      <h1>Create a New Account</h1>
+      <p>Please fill in the form below to register for ePOD access.</p>
+
+      <form id="signup-form" onsubmit="return checkSignup();" novalidate>
         <label for="fullname">Full Name:</label>
         <input type="text" id="fullname" name="fullname"
-         placeholder="Enter your full name" required><!--the name is required insid the box the user will see "Enter your full name"-->
+         placeholder="Enter your full name" required>
 
         <label for="nationalid">National ID:</label>
         <input type="text" id="nationalid" name="nationalid"
-               placeholder="Enter your National ID" required><!--the national ID is required insid the box the user will see "Enter your National ID"-->
+               placeholder="Enter your National ID" required>
 
         <label for="phone">Phone Number:</label>
         <input type="tel" id="phone" name="phone"
-               placeholder="05XXXXXXXX" pattern="[0-9]{10}" required><!--Phone Number is required insid the box the user will see "05XXXXXXXX"-->
-                <!--pattern="[0-9]{10} : this pattern allows only 10 num from 0 to 9-->
+               placeholder="05XXXXXXXX" pattern="[0-9]{10}" required>
 
         <label for="signup-email">Email:</label>
         <input type="email" id="signup-email" name="email"
-               placeholder="name@stu.kau.edu.sa" required><!--Email is required insid the box the user will see "name@stu.kau.edu.sa"-->
+               placeholder="name@stu.kau.edu.sa" required>
 
         <label for="signup-password">Password:</label>
         <input type="password" id="signup-password" name="password"
-               placeholder="Enter your password" minlength="6" required><!--Password is required insid the box the user will see "Enter your password"-->
+               placeholder="Enter your password" minlength="6" required>
 
         <label for="confirm">Confirm Password:</label>
         <input type="password" id="confirm" name="confirm"
-               placeholder="Re-enter your password" minlength="6" required><!--Confirm Password is required insid the box the user will see "Re-enter your password"-->
-                <!-- minlength="6" : this is the min length that mean the pass need to be more then 6-->
+               placeholder="Re-enter your password" minlength="6" required>
 
         <label class="inline">
-          <input type="checkbox" id="terms" name="terms" required><!--this checkbox is required to agree to the terms and conditions and it has a link to go and see terms and conditions-->
+          <input type="checkbox" id="terms" name="terms" required>
           I agree to the <a href="#">terms and conditions</a>.
         </label>
 
-        <!--we use div to keep the button in the same block for the css style-->
         <div class="form-actions">
-          <input type="submit" value="Sign Up"><!--this is the submit button and it will show Sign Up-->
-          <input type="reset" value="Clear"><!--this is the reset button and it will show Clear-->
+          <input type="submit" value="Sign Up">
+          <input type="reset" value="Clear" onclick="clearSignupMessage()">
         </div>
-        
 
-        <!--this paragraph will display success or error messages from js-->
         <p class="form-message" id="signup-message"></p>
       </form>
-      <!--if the user has an acc he can click the link and go to login page-->
+
       <p>Already have an account? <a href="login.html">Login here</a>.</p>
     </section>
   </main>
 
-  <!--in the footer two links one for go back to home and one for go back to the top of the page-->
   <footer>
     <a href="#top">Back to top</a> |
     <a href="index.html">Back to Home</a>
   </footer>
 
-  <script src="app.js"></script>
+  <script>
+    function checkSignup() {
+      var fullname = document.getElementById("fullname").value;
+      var nationalId = document.getElementById("nationalid").value;
+      var phone = document.getElementById("phone").value;
+      var email = document.getElementById("signup-email").value;
+      var password = document.getElementById("signup-password").value;
+      var confirmPassword = document.getElementById("confirm").value;
+      var termsChecked = document.getElementById("terms").checked;
+      var msg = document.getElementById("signup-message");
+
+      if (fullname === "" || nationalId === "" || phone === "" ||
+          email === "" || password === "" || confirmPassword === "") {
+        msg.innerHTML = "Please complete all required fields.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (phone.length !== 10) {
+        msg.innerHTML = "Phone number should have 10 digits (05XXXXXXXX).";
+        msg.style.color = "red";
+        return false;
+      }
+
+
+      if (password.length < 6) {
+        msg.innerHTML = "Password must be at least 6 characters.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        msg.innerHTML = "Passwords do not match.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (!termsChecked) {
+        msg.innerHTML = "You must agree to the terms and conditions.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      msg.innerHTML = "Registration completed (demo only). You can now login.";
+      msg.style.color = "green";
+      alert("Sign up simulated successfully.");
+      return false; // do not send data anywhere
+    }
+
+    function clearSignupMessage() {
+      var msg = document.getElementById("signup-message");
+      msg.innerHTML = "";
+    }
+  </script>
 </body>
 </html>
