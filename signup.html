@@ -8,6 +8,61 @@
   <link rel="stylesheet" href="styles.css" />
   <meta name="description" content="Sign Up page for the Electronic Proof of Delivery (ePOD) project." />
   <meta name="theme-color" content="#0b1220" />
+
+  <script>
+    function checkSignup() {
+      var fullname = document.getElementById("fullname").value;
+      var nationalId = document.getElementById("nationalid").value;
+      var phone = document.getElementById("phone").value;
+      var email = document.getElementById("signup-email").value;
+      var password = document.getElementById("signup-password").value;
+      var confirmPassword = document.getElementById("confirm").value;
+      var termsChecked = document.getElementById("terms").checked;
+      var msg = document.getElementById("signup-message");
+
+      if (fullname === "" || nationalId === "" || phone === "" ||
+          email === "" || password === "" || confirmPassword === "") {
+        msg.innerHTML = "Please complete all required fields.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (phone.length !== 10) {
+        msg.innerHTML = "Phone number should have 10 digits (05XXXXXXXX).";
+        msg.style.color = "red";
+        return false;
+      }
+
+
+      if (password.length < 6) {
+        msg.innerHTML = "Password must be at least 6 characters.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        msg.innerHTML = "Passwords do not match.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      if (!termsChecked) {
+        msg.innerHTML = "You must agree to the terms and conditions.";
+        msg.style.color = "red";
+        return false;
+      }
+
+      msg.innerHTML = "Registration completed (demo only). You can now login.";
+      msg.style.color = "green";
+      alert("Sign up simulated successfully.");
+      return false; // do not send data anywhere
+    }
+
+    function clearSignupMessage() {
+      var msg = document.getElementById("signup-message");
+      msg.innerHTML = "";
+    }
+  </script>
 </head>
 
 <body>
@@ -17,7 +72,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html" aria-current="page">Sign Up</a></li>
+        <li><a href="signup.html" aria-current="page">Sign Up</a></li><!--aria-current="page" means that you are on this page-->
       </ul>
     </nav>
   </header>
@@ -88,59 +143,6 @@
     <a href="index.html">Back to Home</a>
   </footer>
 
-  <script>
-    function checkSignup() {
-      var fullname = document.getElementById("fullname").value;
-      var nationalId = document.getElementById("nationalid").value;
-      var phone = document.getElementById("phone").value;
-      var email = document.getElementById("signup-email").value;
-      var password = document.getElementById("signup-password").value;
-      var confirmPassword = document.getElementById("confirm").value;
-      var termsChecked = document.getElementById("terms").checked;
-      var msg = document.getElementById("signup-message");
-
-      if (fullname === "" || nationalId === "" || phone === "" ||
-          email === "" || password === "" || confirmPassword === "") {
-        msg.innerHTML = "Please complete all required fields.";
-        msg.style.color = "red";
-        return false;
-      }
-
-      if (phone.length !== 10) {
-        msg.innerHTML = "Phone number should have 10 digits (05XXXXXXXX).";
-        msg.style.color = "red";
-        return false;
-      }
-
-
-      if (password.length < 6) {
-        msg.innerHTML = "Password must be at least 6 characters.";
-        msg.style.color = "red";
-        return false;
-      }
-
-      if (password !== confirmPassword) {
-        msg.innerHTML = "Passwords do not match.";
-        msg.style.color = "red";
-        return false;
-      }
-
-      if (!termsChecked) {
-        msg.innerHTML = "You must agree to the terms and conditions.";
-        msg.style.color = "red";
-        return false;
-      }
-
-      msg.innerHTML = "Registration completed (demo only). You can now login.";
-      msg.style.color = "green";
-      alert("Sign up simulated successfully.");
-      return false; // do not send data anywhere
-    }
-
-    function clearSignupMessage() {
-      var msg = document.getElementById("signup-message");
-      msg.innerHTML = "";
-    }
-  </script>
+  
 </body>
 </html>

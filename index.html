@@ -18,172 +18,8 @@
       font-size: 0.9rem;
     }
   </style>
-</head>
 
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html">Sign Up</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#dashboard">Dashboard Demo</a></li>
-        <li><a href="#new-order">New Order</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section id="hero">
-      <h1 id="hero-title">Electronic Proof of Delivery (ePOD)</h1>
-      <p>
-        A stand-alone digital platform that replaces paper-based proof-of-delivery
-        with simple electronic signatures, order tracking, and small performance dashboards.
-      </p>
-      <div class="highlight-box">
-        This is a <strong>CPIS-358 educational project</strong>. It shows how a delivery company
-        can move from paper forms to a basic web system using only HTML, CSS and JavaScript.
-      </div>
-      <a class="btn-primary" href="login.html">Go to Login</a>
-      <a class="btn-secondary" href="signup.html">Create an Account</a>
-    </section>
-
-    <figure>
-      <img src="epod-1.png"
-           id="project-image"
-           alt="ePOD dashboard replacing old delivery forms"
-           width="500"
-           height="500"
-           usemap="#epodMap">
-      <map name="epodMap">
-        <area shape="rect" coords="0,0,500,500" href="about.html" alt="About the ePOD Project">
-      </map>
-      <figcaption id="project-caption">
-        <em>Click anywhere on the picture to open the About Us page.</em>
-      </figcaption>
-      <p>
-        <button type="button" onclick="explainPicture()">Explain the picture</button>
-      </p>
-    </figure>
-
-    <section id="features">
-      <h2>Key Features (Concept)</h2>
-      <ul>
-        <li>Salesperson or driver can enter sales orders into the system.</li>
-        <li>System generates a digital Proof-of-Delivery (POD) for each order.</li>
-        <li>Customer reviews items and approves with an electronic signature.</li>
-        <li>Signed POD is stored as a record with signature, timestamp, and hash (concept).</li>
-        <li>Dashboard shows POD completion by salesperson / customer and pending deliveries.</li>
-      </ul>
-      <p class="small-note">
-        In this first version, everything is simulated in the browser with JavaScript only.
-      </p>
-    </section>
-
-    <section id="dashboard">
-      <h2>Demo Delivery Dashboard</h2>
-      <p>
-        The table below shows a <strong>simulated list of deliveries</strong>.
-        JavaScript calculates how many PODs are pending vs. signed.
-      </p>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span id="stat-total" class="stat-number">0</span>
-          <span class="stat-label">Total Orders</span>
-        </div>
-        <div class="stat-card">
-          <span id="stat-signed" class="stat-number">0</span>
-          <span class="stat-label">Signed PODs</span>
-        </div>
-        <div class="stat-card">
-          <span id="stat-pending" class="stat-number">0</span>
-          <span class="stat-label">Pending PODs</span>
-        </div>
-      </div>
-
-      <div class="filter-row">
-        <label for="statusFilter">Filter by status:</label>
-        <select id="statusFilter" onchange="renderDashboard()">
-          <option value="all">All</option>
-          <option value="Signed">Signed</option>
-          <option value="Pending">Pending</option>
-        </select>
-      </div>
-
-      <table id="orders-table">
-        <thead>
-          <tr>
-            <th>Order #</th>
-            <th>Customer</th>
-            <th>Salesperson</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody id="orders-body">
-        </tbody>
-      </table>
-    </section>
-
-    <section id="new-order">
-      <h2>Create New Order (Demo)</h2>
-
-
-      <form id="order-form" onsubmit="return addOrder();" onreset="clearOrderMessage();" novalidate>
-        <label for="order-id">Order Number:</label>
-        <input type="text" id="order-id" name="order-id"
-               placeholder="SO1005" required>
-
-        <label for="order-customer">Customer Name:</label>
-        <input type="text" id="order-customer" name="order-customer"
-               placeholder="Customer Name" required>
-
-        <label for="order-salesperson">Salesperson:</label>
-        <input type="text" id="order-salesperson" name="order-salesperson"
-               placeholder="Salesperson Name" required>
-
-        <label for="order-status">Initial Status:</label>
-        <select id="order-status" name="order-status">
-          <option value="Pending">Pending</option>
-          <option value="Signed">Signed</option>
-        </select>
-
-        <div class="form-actions">
-          <input type="submit" value="Add Order">
-          <input type="reset" value="Reset">
-        </div>
-
-        <p class="form-message" id="order-message"></p>
-      </form>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        For academic questions about this project, please contact the team members listed on the
-        <a href="about.html">About Us</a> page or reach out through the GitHub repository.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <small>
-      &copy; <span id="year"></span> ePOD — CPIS-358 educational project.
-    </small>
-    <br />
-    <address style="font-family: 'Courier New', Courier, monospace;">
-      Contact us at
-      <a href="mailto:wallehaibi0001@stu.kau.edu.sa">wallehaibi0001@stu.kau.edu.sa</a><br>
-      <a href="mailto:sdalati@stu.kau.edu.sa">sdalati@stu.kau.edu.sa</a>
-    </address><br>
-    <a href="#top">Back to top</a>
-  </footer>
-
-  <script>
+   <script>
     var orders = [
       ["S1", "A", "Ali", "Signed"],
       ["S2", "B", "Ahmad", "Pending"],
@@ -202,8 +38,7 @@
     function explainPicture() {
       var caption = document.getElementById("project-caption");
       var image = document.getElementById("project-image");
-      caption.innerHTML =
-        "This picture shows how ePOD replaces old paper delivery forms with a simple web dashboard.";
+      caption.innerHTML = "This picture shows how ePOD replaces old paper delivery forms with a simple web dashboard.";
       caption.style.color = "#1d4ed8";
       image.style.border = "3px solid #1d4ed8";
     }
@@ -319,5 +154,186 @@
       renderDashboard();
     };
   </script>
+</head>
+
+<body>
+  <header>
+    <nav><!--we use <nav> because we have a group of links in a list for moving between the pages-->
+      <ul><!-- Unordered list that has items (page links) -->
+        <li><a href="index.html" aria-current="page">Home</a></li><!--home page aria-current="page" means that you are on this page -->
+        <li><a href="about.html">About Us</a></li><!--about Us page link-->
+        <li><a href="login.html">Login</a></li><!--login page link-->
+        <li><a href="signup.html">Sign Up</a></li><!--sign Up page link-->
+        <li><a href="#features">Features</a></li><!--features link in the home page to go directly to the features section-->
+        <li><a href="#dashboard">Dashboard Demo</a></li><!--dashboard link in the home page to go directly to the dashboard section-->
+        <li><a href="#new-order">New Order</a></li><!--new Order link in the home page to go directly to the new Order section-->
+        <li><a href="#contact">Contact</a></li><!--contact link in the home page to go directly to the contact section-->
+      </ul>
+    </nav>
+  </header>
+ <!--the main section contains the contents of the page-->
+  <main id="top">
+    <!--this is the first section the user will see,so we give an introduction in it-->
+    <section id="hero">
+      <h1 id="hero-title">Electronic Proof of Delivery (ePOD)</h1> <!--that is a head for the paragraph-->
+      <!--that is the first paragraph that taok aout the project-->
+      <p>
+        A stand-alone digital platform that replaces paper-based proof-of-delivery
+        with simple electronic signatures, order tracking, and small performance dashboards.
+      </p>
+
+      <div class="highlight-box"> <!--that is the second paragraph that taki about why we did this project strong to make it Bold-->
+        This is a <strong>CPIS-358 educational project</strong>. It shows how a delivery company
+        can move from paper forms to a basic web system using only HTML, CSS and JavaScript.
+      </div>
+      <a class="btn-primary" href="login.html">Go to Login</a><!--link to go to the login page-->
+      <a class="btn-secondary" href="signup.html">Create an Account</a><!--link to go to the singup page and do a new acc-->
+    </section>
+
+    <figure>
+      <!--this is figuer tag we use it to add imges in it-->
+      <!--this is the image
+      if the image does not exist it will show "About the ePOD Project"
+      the width is 500 and the height is 500
+      -->
+       <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
+    <img src="epod-1.png" 
+    alt="About the ePOD Project"
+    width="500"
+    height="500">
+  </a>
+      <figcaption id="project-caption"> <!--that tag will add descrip for the imgae in the caption(under the imege) it a note for the imge-->
+        <em>Click anywhere on the picture to open the About Us page.</em><!--em is used to make the text styled with emphasis-->
+      </figcaption>
+      <p>
+        <button type="button" onclick="explainPicture()">Explain the picture</button>
+      </p>
+    </figure>
+
+    <section id="features"><!--in this section we show the key features in an unordered list-->
+      <h2>Key Features (Concept)</h2>
+      <ul>
+        <li>Salesperson or driver can enter sales orders into the system.</li>
+        <li>System generates a digital Proof-of-Delivery (POD) for each order.</li>
+        <li>Customer reviews items and approves with an electronic signature.</li>
+        <li>Signed POD is stored as a record with signature, timestamp, and hash (concept).</li>
+        <li>Dashboard shows POD completion by salesperson / customer and pending deliveries.</li>
+      </ul>
+      <p class="small-note"><!--small-note is a CSS style that makes the text smaller-->
+        In this first version, everything is simulated in the browser with JavaScript only.
+      </p>
+    </section>
+
+    <!--in this section we will use the table as a dashboard it will countes(Total Orders,Signed PODs,Pending PODs)-->
+    <section id="dashboard">
+      <h2>Demo Delivery Dashboard</h2>
+      <p>
+        The table below shows a <strong>simulated list of deliveries</strong>.
+        JavaScript calculates how many PODs are pending vs. signed.
+      </p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span id="stat-total" class="stat-number">0</span>
+          <span class="stat-label">Total Orders</span>
+        </div>
+        <div class="stat-card">
+          <span id="stat-signed" class="stat-number">0</span>
+          <span class="stat-label">Signed PODs</span>
+        </div>
+        <div class="stat-card">
+          <span id="stat-pending" class="stat-number">0</span>
+          <span class="stat-label">Pending PODs</span>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <label for="statusFilter">Filter by status:</label>
+        <select id="statusFilter" onchange="renderDashboard()">
+          <option value="all">All</option>
+          <option value="Signed">Signed</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+
+      <table id="orders-table">
+        <thead>
+          <tr>
+            <th>Order #</th>
+            <th>Customer</th>
+            <th>Salesperson</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="orders-body">
+        </tbody>
+      </table>
+    </section>
+
+    <section id="new-order">
+      <h2>Create New Order (Demo)</h2>
+
+
+      <form id="order-form" onsubmit="return addOrder();" onreset="clearOrderMessage();" novalidate>
+        <!--in this form we use placeholder to show an example inside the input box, and type for each input, and required for the fields that must not be skipped, and name for each item-->
+        <label for="order-id">Order Number:</label>
+        <input type="text" id="order-id" name="order-id"
+               placeholder="SO1005" required>
+
+        <label for="order-customer">Customer Name:</label>
+        <input type="text" id="order-customer" name="order-customer"
+               placeholder="Customer Name" required>
+
+        <label for="order-salesperson">Salesperson:</label>
+        <input type="text" id="order-salesperson" name="order-salesperson"
+               placeholder="Salesperson Name" required>
+          
+        <!-- in this field we use a select input so the user can choose the initial status, there are 2 options-->
+        <label for="order-status">Initial Status:</label>
+        <select id="order-status" name="order-status">
+          <option value="Pending">Pending</option>
+          <option value="Signed">Signed</option>
+        </select>
+
+        <!--we use div to keep the buttons in the same block for the css style-->
+        <div class="form-actions">
+          <input type="submit" value="Add Order"><!--this is the submit button and it will show Add Order-->
+
+          <input type="reset" value="Reset"><!--this is the reset button and it will show Reset-->
+        </div>
+
+        <p class="form-message" id="order-message"></p><!--this paragraph will show success or error messages using js-->
+      </form>
+    </section>
+
+    <!--it a paragraph that has a link in it to go to about page-->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        For academic questions about this project, please contact the team members listed on the
+        <a href="about.html">About Us</a> page or reach out through the GitHub repository.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      &copy; <span id="year"></span> ePOD — CPIS-358 educational project.
+    </small>
+    <br />
+    <!--The address tag contains the contact information, inline CSS styling,
+    and anchor tags so the user can click the email to send a message-->
+    <address style="font-family: 'Courier New', Courier, monospace;">
+      Contact us at
+      <a href="mailto:wallehaibi0001@stu.kau.edu.sa">wallehaibi0001@stu.kau.edu.sa</a><br>
+      <a href="mailto:sdalati@stu.kau.edu.sa">sdalati@stu.kau.edu.sa</a>
+    </address><br>
+
+    <!--go back to the top of the page using the id top-->
+    <a href="#top">Back to top</a>
+  </footer>
+
+
 </body>
 </html>
