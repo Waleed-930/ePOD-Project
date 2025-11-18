@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--page titel -->
+  <!--page titel -->
   <title>Sign Up — ePOD System</title>
   <!-- External CSS file -->
   <link rel="stylesheet" href="styles.css" />
@@ -11,8 +12,11 @@
   <meta name="description" content="Sign Up page for the Electronic Proof of Delivery (ePOD) project." />
   <meta name="theme-color" content="#0b1220" />
 
+  <!-- JavaScript Block -->
   <script>
+    // This function validates the form when the user clicks Sign Up
     function checkSignup() {
+      // Get the values of all fields
       var fullname = document.getElementById("fullname").value;
       var nationalId = document.getElementById("nationalid").value;
       var phone = document.getElementById("phone").value;
@@ -20,15 +24,19 @@
       var password = document.getElementById("signup-password").value;
       var confirmPassword = document.getElementById("confirm").value;
       var termsChecked = document.getElementById("terms").checked;
+
+      // Message element to display errors or success
       var msg = document.getElementById("signup-message");
 
+      // Check for empty fields
       if (fullname === "" || nationalId === "" || phone === "" ||
-          email === "" || password === "" || confirmPassword === "") {
+        email === "" || password === "" || confirmPassword === "") {
         msg.innerHTML = "Please complete all required fields.";
         msg.style.color = "red";
         return false;
       }
 
+      // Check phone number length
       if (phone.length !== 10) {
         msg.innerHTML = "Phone number should have 10 digits (05XXXXXXXX).";
         msg.style.color = "red";
@@ -36,30 +44,35 @@
       }
 
 
+      // Check password length
       if (password.length < 6) {
         msg.innerHTML = "Password must be at least 6 characters.";
         msg.style.color = "red";
         return false;
       }
 
+      // Check password and confirm password match
       if (password !== confirmPassword) {
         msg.innerHTML = "Passwords do not match.";
         msg.style.color = "red";
         return false;
       }
 
+      // Check if the user accepted the terms
       if (!termsChecked) {
         msg.innerHTML = "You must agree to the terms and conditions.";
         msg.style.color = "red";
         return false;
       }
 
+      // Success message
       msg.innerHTML = "Registration completed (demo only). You can now login.";
       msg.style.color = "green";
-      alert("Sign up simulated successfully.");
+      alert("Sign up done successfully.");
       return false; // do not send data anywhere
     }
 
+    // Clear the message when the user click "clear"
     function clearSignupMessage() {
       var msg = document.getElementById("signup-message");
       msg.innerHTML = "";
@@ -69,13 +82,14 @@
 
 <body>
   <header>
-   <!--these are the page links inside an unordered list-->
-   <nav>
+    <!--these are the page links inside an unordered list-->
+    <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="login.html">Login</a></li>
-        <li><a href="signup.html" aria-current="page">Sign Up</a></li><!--aria-current="page" means that you are on this page-->
+        <li><a href="signup.html" aria-current="page">Sign Up</a></li>
+        <!--aria-current="page" means that you are on this page-->
       </ul>
     </nav>
   </header>
@@ -83,12 +97,10 @@
   <main id="top">
     <!--this is the login section-->
     <figure>
-    <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
-    <img src="epod-1.png" 
-    alt="About the ePOD Project"
-    width="500"
-    height="500"><!--the image width is 500 and the height is 500 if the image did not show it will show "About the ePOD Project"-->
-    </a>
+      <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
+        <img src="epod-1.png" alt="About the ePOD Project" width="500"
+          height="500"><!--the image width is 500 and the height is 500 if the image did not show it will show "About the ePOD Project"-->
+      </a>
       <figcaption>
         <em>Image of the ePOD idea. Click to open About Us.</em><!--it like a note for the image-->
       </figcaption>
@@ -99,29 +111,32 @@
       <p>Please fill in the form below to register for ePOD access.</p>
 
       <form id="signup-form" onsubmit="return checkSignup();" novalidate><!--sing up form-->
-        <label for="fullname">Full Name:</label><!--the full name is required and placeholder will show in the box "Enter your full name"-->
-        <input type="text" id="fullname" name="fullname"
-         placeholder="Enter your full name" required>
+        <label for="fullname">Full
+          Name:</label><!--the full name is required and placeholder will show in the box "Enter your full name"-->
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
 
-        <label for="nationalid">National ID:</label><!--the national id is required and placeholder will show in the box "Enter your National ID"-->
-        <input type="text" id="nationalid" name="nationalid"
-               placeholder="Enter your National ID" required>
+        <label for="nationalid">National
+          ID:</label><!--the national id is required and placeholder will show in the box "Enter your National ID"-->
+        <input type="text" id="nationalid" name="nationalid" placeholder="Enter your National ID" required>
 
-        <label for="phone">Phone Number:</label><!--the phone is required and placeholder will show in the box "05XXXXXXXX"-->
-        <input type="tel" id="phone" name="phone"
-               placeholder="05XXXXXXXX" pattern="[0-9]{10}" required><!--it mean ten number each number between 0 and 9-->
+        <label for="phone">Phone
+          Number:</label><!--the phone is required and placeholder will show in the box "05XXXXXXXX"-->
+        <input type="tel" id="phone" name="phone" placeholder="05XXXXXXXX" pattern="[0-9]{10}"
+          required><!--it mean ten number each number between 0 and 9-->
 
-        <label for="signup-email">Email:</label><!--the email is required and placeholder will show in the box "name@stu.kau.edu.sa"-->
-        <input type="email" id="signup-email" name="email"
-               placeholder="name@stu.kau.edu.sa" required>
+        <label
+          for="signup-email">Email:</label><!--the email is required and placeholder will show in the box "name@stu.kau.edu.sa"-->
+        <input type="email" id="signup-email" name="email" placeholder="name@stu.kau.edu.sa" required>
 
-        <label for="signup-password">Password:</label><!--the Password is required and placeholder will show in the box "Enter your password"-->
-        <input type="password" id="signup-password" name="password"
-               placeholder="Enter your password" minlength="6" required><!--the min length is 6 so password need to be 6 or more-->
+        <label
+          for="signup-password">Password:</label><!--the Password is required and placeholder will show in the box "Enter your password"-->
+        <input type="password" id="signup-password" name="password" placeholder="Enter your password" minlength="6"
+          required><!--the min length is 6 so password need to be 6 or more-->
 
-        <label for="confirm">Confirm Password:</label><!--the Confirm Password is required and placeholder will show in the box "Re-enter your password"-->
-        <input type="password" id="confirm" name="confirm"
-               placeholder="Re-enter your password" minlength="6" required><!--the min length is 6 so Confirm password need to be 6 or more-->
+        <label for="confirm">Confirm
+          Password:</label><!--the Confirm Password is required and placeholder will show in the box "Re-enter your password"-->
+        <input type="password" id="confirm" name="confirm" placeholder="Re-enter your password" minlength="6"
+          required><!--the min length is 6 so Confirm password need to be 6 or more-->
 
         <label class="inline">
           <input type="checkbox" id="terms" name="terms" required><!--agree checkbox is required -->
@@ -137,15 +152,17 @@
         <p class="form-message" id="signup-message"></p>
       </form>
 
-      <p>Already have an account? <a href="login.html">Login here</a>.</p><!--if the user already have an acc he can go to Login page-->
+      <p>Already have an account? <a href="login.html">Login here</a>.</p>
+      <!--if the user already have an acc he can go to Login page-->
     </section>
   </main>
-<!--in the footer to links one for go back to home and one for go back to the top of the page-->
+  <!--in the footer to links one for go back to home and one for go back to the top of the page-->
   <footer>
     <a href="#top">Back to top</a> |
     <a href="index.html">Back to Home</a>
   </footer>
 
-  
+
 </body>
+
 </html>

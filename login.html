@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <!--page titel -->
@@ -10,31 +11,41 @@
   <meta name="description" content="Login page for the Electronic Proof of Delivery (ePOD) project." />
   <meta name="theme-color" content="#0b1220" />
 
+
+  <!-- JavaScript Block -->
   <script>
+    // This function runs when the user press "Login"
     function checkLogin() {
-      var email = document.getElementById("login-email").value;
-      var password = document.getElementById("login-password").value;
+      var email = document.getElementById("login-email").value;         // get email
+      var password = document.getElementById("login-password").value;   // get password
       var messageEl = document.getElementById("login-message");
 
+      // Check if one of the fields is empty
       if (email === "" || password === "") {
         messageEl.innerHTML = "Please fill in both email and password.";
         messageEl.style.color = "red";
         return false;
       }
 
+      // Check if password is too short
       if (password.length < 6) {
         messageEl.innerHTML = "Password should be at least 6 characters.";
         messageEl.style.color = "red";
         return false;
       }
 
+      // If everything is correct
       messageEl.innerHTML = "Login successful (demo only).";
       messageEl.style.color = "green";
       messageEl.style.border = "1px solid #16a34a";
-      alert("Login simulated successfully. In a real system you would go to the dashboard.");
+
+      // Confirmation Message
+      alert("Login done successfully.");
+
       return false;
     }
 
+    // Clear the message when the user click "clear"
     function clearLoginMessage() {
       var messageEl = document.getElementById("login-message");
       messageEl.innerHTML = "";
@@ -50,22 +61,20 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="login.html" aria-current="page">Login</a></li><!--aria-current="page" means that you are on this page-->
+        <li><a href="login.html" aria-current="page">Login</a></li>
+        <!--aria-current="page" means that you are on this page-->
         <li><a href="signup.html">Sign Up</a></li>
       </ul>
     </nav>
   </header>
 
-<!--the main section contains the contents of the page-->
+  <!--the main section contains the contents of the page-->
   <main id="top">
     <!--this is the login section-->
     <figure>
-    <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
-    <img src="epod-1.png" 
-    alt="About the ePOD Project"
-    width="500"
-    height="500">
-    </a>
+      <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
+        <img src="epod-1.png" alt="About the ePOD Project" width="500" height="500">
+      </a>
       <figcaption>
         <em>Click the picture to read more about the project.</em>
       </figcaption>
@@ -79,12 +88,10 @@
       and required to make sure they are not left empty-->
       <form id="login-form" onsubmit="return checkLogin();" novalidate>
         <label for="login-email">Email:</label>
-        <input type="email" id="login-email" name="email"
-        placeholder="name@stu.kau.edu.sa" required>
+        <input type="email" id="login-email" name="email" placeholder="name@stu.kau.edu.sa" required>
 
         <label for="login-password">Password:</label>
-        <input type="password" id="login-password" name="password"
-        placeholder="Enter your password" required>
+        <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
 
         <label class="inline">
           <input type="checkbox" name="remember"> Remember me
@@ -93,7 +100,8 @@
         <!--we use div to keep the button in the same block for the css style-->
         <div class="form-actions">
           <input type="submit" value="Login"><!--this is the submit button and it will show Login-->
-          <input type="reset" value="Clear" onclick="clearLoginMessage()"><!--this is the reset button and it will show Clear-->
+          <input type="reset" value="Clear"
+            onclick="clearLoginMessage()"><!--this is the reset button and it will show Clear-->
         </div>
 
         <!--this paragraph will display success or error messages from js-->
@@ -103,7 +111,7 @@
       <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
     </section>
   </main>
-<!--in the footer to links one for go back to home and one for go back to the top of the page-->
+  <!--in the footer to links one for go back to home and one for go back to the top of the page-->
   <footer>
     <a href="#top">Back to top</a> |
     <a href="index.html">Back to Home</a>
@@ -111,4 +119,5 @@
 
 
 </body>
+
 </html>

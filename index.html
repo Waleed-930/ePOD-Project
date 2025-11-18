@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
-    <!--page titel -->
+  <!--page title -->
   <title>ePOD — Digital Proof of Delivery</title>
   <!-- External CSS file -->
   <link rel="stylesheet" href="styles.css" />
   <!-- Descriptive metadata -->
-  <meta name="description"
-        content="Electronic Proof of Delivery (ePOD) system." />
+  <meta name="description" content="Electronic Proof of Delivery (ePOD) system." />
   <meta name="theme-color" content="#0b1220" />
 
+  <!-- Internal CSS as required in the assignment -->
   <style>
     .highlight-box {
       background-color: #fffbe6;
@@ -21,7 +22,9 @@
     }
   </style>
 
-   <script>
+  <!-- JavaScript Block -->
+  <script>
+    // an Array stores the list of orders for the dashboard
     var orders = [
       ["S1", "A", "Ali", "Signed"],
       ["S2", "B", "Ahmad", "Pending"],
@@ -29,6 +32,7 @@
       ["S4", "D", "Mohammed", "Pending"]
     ];
 
+    // Function to update the year in the footer according to the current year
     function updateYear() {
       var span = document.getElementById("year");
       if (span) {
@@ -37,6 +41,7 @@
       }
     }
 
+    // Function to explain the picture when click, it updates the caption & adds blue border
     function explainPicture() {
       var caption = document.getElementById("project-caption");
       var image = document.getElementById("project-image");
@@ -45,22 +50,25 @@
       image.style.border = "3px solid #1d4ed8";
     }
 
+    // Draw dashboard table & counts orders by types
     function renderDashboard() {
       var tbody = document.getElementById("orders-body");
-      var filterSelect = document.getElementById("statusFilter");
-      var filterValue = filterSelect.value;
+      var filterSelect = document.getElementById("statusFilter"); // dropdown
+      var filterValue = filterSelect.value; // selected filter
 
-      tbody.innerHTML = "";
+      tbody.innerHTML = ""; // clear previous rows
 
-      var total = orders.length;
+      var total = orders.length; // total orders
       var signed = 0;
       var pending = 0;
       var i;
 
+      // Loop through all orders
       for (i = 0; i < orders.length; i++) {
         var order = orders[i];
         var status = order[3];
 
+        // Count signed and pending
         if (status === "Signed") {
           signed++;
         }
@@ -68,10 +76,12 @@
           pending++;
         }
 
+        // Apply filter
         if (filterValue !== "all" && status !== filterValue) {
           continue;
         }
 
+        // table row
         var rowHtml =
           "<tr>" +
           "<td>" + order[0] + "</td>" +
@@ -79,39 +89,45 @@
           "<td>" + order[2] + "</td>" +
           "<td>" + status + "</td>";
 
+        // Sign button when pending
         if (status === "Pending") {
           rowHtml +=
             "<td><button type=\"button\" class=\"btn-sign\" " +
             "onclick=\"signOrder('" + order[0] + "')\">Sign</button></td>";
         } else {
+          // Signed label when signed
           rowHtml += "<td><span class=\"signed-label\">Signed</span></td>";
         }
 
         rowHtml += "</tr>";
 
+        // Add the row to the table
         tbody.innerHTML += rowHtml;
       }
 
+      // Update the dashboard cards
       document.getElementById("stat-total").innerHTML = total;
       document.getElementById("stat-signed").innerHTML = signed;
       document.getElementById("stat-pending").innerHTML = pending;
     }
 
+    // Sign the pending order by asking the user for confirmation
     function signOrder(orderId) {
       var i;
       for (i = 0; i < orders.length; i++) {
         if (orders[i][0] === orderId) {
-          if (orders[i][3] === "Pending") {
+          if (orders[i][3] === "Pending") {     // only if it's pending
             var ok = confirm("Simulate customer signature for order " + orderId + "?");
             if (ok) {
-              orders[i][3] = "Signed";
+              orders[i][3] = "Signed";          // update status
             }
           }
         }
       }
-      renderDashboard();
+      renderDashboard();                        // refresh the dashboard
     }
 
+    // Function to add new order
     function addOrder() {
       var id = document.getElementById("order-id").value;
       var customer = document.getElementById("order-customer").value;
@@ -120,12 +136,14 @@
       var status = statusSelect.value;
       var msg = document.getElementById("order-message");
 
+      // Check for empty fields
       if (id === "" || customer === "" || salesperson === "") {
         msg.innerHTML = "Please complete all fields.";
         msg.style.color = "red";
         return false;
       }
 
+      // Check duplicate order number
       var i;
       for (i = 0; i < orders.length; i++) {
         if (orders[i][0] === id) {
@@ -135,22 +153,25 @@
         }
       }
 
+      // Add the new order to the array
       orders.push([id, customer, salesperson, status]);
 
       msg.innerHTML = "Order added successfully. It now appears in the dashboard.";
       msg.style.color = "green";
 
-      document.getElementById("order-form").reset();
-      document.getElementById("order-status").value = "Pending";
-      renderDashboard();
+      document.getElementById("order-form").reset();  // empty form
+      document.getElementById("order-status").value = "Pending";  // default value
+      renderDashboard();  // update dashboard
       return false;
     }
 
+    // Clear the message below the form
     function clearOrderMessage() {
       var msg = document.getElementById("order-message");
       msg.innerHTML = "";
     }
 
+    // When page loads, run the functions
     window.onload = function () {
       updateYear();
       renderDashboard();
@@ -162,18 +183,23 @@
   <header>
     <nav><!--we use <nav> because we have a group of links in a list for moving between the pages-->
       <ul><!-- Unordered list that has items (page links) -->
-        <li><a href="index.html" aria-current="page">Home</a></li><!--home page aria-current="page" means that you are on this page -->
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <!--home page aria-current="page" means that you are on this page -->
         <li><a href="about.html">About Us</a></li><!--about Us page link-->
         <li><a href="login.html">Login</a></li><!--login page link-->
         <li><a href="signup.html">Sign Up</a></li><!--sign Up page link-->
-        <li><a href="#features">Features</a></li><!--features link in the home page to go directly to the features section-->
-        <li><a href="#dashboard">Dashboard Demo</a></li><!--dashboard link in the home page to go directly to the dashboard section-->
-        <li><a href="#new-order">New Order</a></li><!--new Order link in the home page to go directly to the new Order section-->
-        <li><a href="#contact">Contact</a></li><!--contact link in the home page to go directly to the contact section-->
+        <li><a href="#features">Features</a></li>
+        <!--features link in the home page to go directly to the features section-->
+        <li><a href="#dashboard">Dashboard Demo</a></li>
+        <!--dashboard link in the home page to go directly to the dashboard section-->
+        <li><a href="#new-order">New Order</a></li>
+        <!--new Order link in the home page to go directly to the new Order section-->
+        <li><a href="#contact">Contact</a></li>
+        <!--contact link in the home page to go directly to the contact section-->
       </ul>
     </nav>
   </header>
- <!--the main section contains the contents of the page-->
+  <!--the main section contains the contents of the page-->
   <main id="top">
     <!--this is the first section the user will see,so we give an introduction in it-->
     <section id="hero">
@@ -184,12 +210,14 @@
         with simple electronic signatures, order tracking, and small performance dashboards.
       </p>
 
-      <div class="highlight-box"> <!--that is the second paragraph that taki about why we did this project strong to make it Bold-->
+      <div class="highlight-box">
+        <!--that is the second paragraph that taki about why we did this project strong to make it Bold-->
         This is a <strong>CPIS-358 educational project</strong>. It shows how a delivery company
         can move from paper forms to a basic web system using only HTML, CSS and JavaScript.
       </div>
       <a class="btn-primary" href="login.html">Go to Login</a><!--link to go to the login page-->
-      <a class="btn-secondary" href="signup.html">Create an Account</a><!--link to go to the singup page and do a new acc-->
+      <a class="btn-secondary" href="signup.html">Create an
+        Account</a><!--link to go to the singup page and do a new acc-->
     </section>
 
     <figure>
@@ -198,14 +226,13 @@
       if the image does not exist it will show "About the ePOD Project"
       the width is 500 and the height is 500
       -->
-       <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
-    <img src="epod-1.png" 
-    alt="About the ePOD Project"
-    width="500"
-    height="500">
-  </a>
-      <figcaption id="project-caption"> <!--that tag will add descrip for the imgae in the caption(under the imege) it a note for the imge-->
-        <em>Click anywhere on the picture to open the About Us page.</em><!--em is used to make the text styled with emphasis-->
+      <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
+        <img src="epod-1.png" alt="About the ePOD Project" width="500" height="500">
+      </a>
+      <figcaption id="project-caption">
+        <!--that tag will add descrip for the imgae in the caption(under the imege) it a note for the imge-->
+        <em>Click anywhere on the picture to open the About Us
+          page.</em><!--em is used to make the text styled with emphasis-->
       </figcaption>
       <p>
         <button type="button" onclick="explainPicture()">Explain the picture</button>
@@ -213,19 +240,19 @@
     </figure>
 
     <article>
-    <section id="features"><!--in this section we show the key features in an unordered list-->
-      <h2>Key Features (Concept)</h2>
-      <ul>
-        <li>Salesperson or driver can enter sales orders into the system.</li>
-        <li>System generates a digital Proof-of-Delivery (POD) for each order.</li>
-        <li>Customer reviews items and approves with an electronic signature.</li>
-        <li>Signed POD is stored as a record with signature, timestamp, and hash (concept).</li>
-        <li>Dashboard shows POD completion by salesperson / customer and pending deliveries.</li>
-      </ul>
-      <p class="small-note"><!--small-note is a CSS style that makes the text smaller-->
-        In this first version, everything is simulated in the browser with JavaScript only.
-      </p>
-    </section>
+      <section id="features"><!--in this section we show the key features in an unordered list-->
+        <h2>Key Features (Concept)</h2>
+        <ul>
+          <li>Salesperson or driver can enter sales orders into the system.</li>
+          <li>System generates a digital Proof-of-Delivery (POD) for each order.</li>
+          <li>Customer reviews items and approves with an electronic signature.</li>
+          <li>Signed POD is stored as a record with signature, timestamp, and hash (concept).</li>
+          <li>Dashboard shows POD completion by salesperson / customer and pending deliveries.</li>
+        </ul>
+        <p class="small-note"><!--small-note is a CSS style that makes the text smaller-->
+          In this first version, everything is simulated in the browser with JavaScript only.
+        </p>
+      </section>
     </article>
 
     <!--in this section we will use the table as a dashboard it will countes(Total Orders,Signed PODs,Pending PODs)-->
@@ -282,17 +309,14 @@
       <form id="order-form" onsubmit="return addOrder();" onreset="clearOrderMessage();" novalidate>
         <!--in this form we use placeholder to show an example inside the input box, and type for each input, and required for the fields that must not be skipped, and name for each item-->
         <label for="order-id">Order Number:</label>
-        <input type="text" id="order-id" name="order-id"
-               placeholder="SO1005" required>
+        <input type="text" id="order-id" name="order-id" placeholder="SO1005" required>
 
         <label for="order-customer">Customer Name:</label>
-        <input type="text" id="order-customer" name="order-customer"
-               placeholder="Customer Name" required>
+        <input type="text" id="order-customer" name="order-customer" placeholder="Customer Name" required>
 
         <label for="order-salesperson">Salesperson:</label>
-        <input type="text" id="order-salesperson" name="order-salesperson"
-               placeholder="Salesperson Name" required>
-          
+        <input type="text" id="order-salesperson" name="order-salesperson" placeholder="Salesperson Name" required>
+
         <!-- in this field we use a select input so the user can choose the initial status, there are 2 options-->
         <label for="order-status">Initial Status:</label>
         <select id="order-status" name="order-status">
@@ -307,7 +331,8 @@
           <input type="reset" value="Reset"><!--this is the reset button and it will show Reset-->
         </div>
 
-        <p class="form-message" id="order-message"></p><!--this paragraph will show success or error messages using js-->
+        <p class="form-message" id="order-message"></p>
+        <!--this paragraph will show success or error messages using js-->
       </form>
     </section>
 
@@ -340,4 +365,5 @@
 
 
 </body>
+
 </html>
