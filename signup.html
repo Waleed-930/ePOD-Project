@@ -67,7 +67,8 @@
 
 <body>
   <header>
-    <nav>
+   <!--these are the page links inside an unordered list-->
+   <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
@@ -78,66 +79,66 @@
   </header>
 
   <main id="top">
+    <!--this is the login section-->
     <figure>
-      <img src="epod-1.png"
-           alt="ePOD signup page concept"
-           width="400"
-           height="400"
-           usemap="#epodMapSignup">
-      <map name="epodMapSignup">
-        <area shape="rect" coords="0,0,400,400" href="about.html" alt="About the project">
-      </map>
+    <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
+    <img src="epod-1.png" 
+    alt="About the ePOD Project"
+    width="500"
+    height="500"><!--the image width is 500 and the height is 500 if the image did not show it will show "About the ePOD Project"-->
+    </a>
       <figcaption>
-        <em>Image of the ePOD idea. Click to open About Us.</em>
+        <em>Image of the ePOD idea. Click to open About Us.</em><!--it like a note for the image-->
       </figcaption>
     </figure>
 
-    <section id="signup">
+    <section id="signup"><!--this is singup section-->
       <h1>Create a New Account</h1>
       <p>Please fill in the form below to register for ePOD access.</p>
 
-      <form id="signup-form" onsubmit="return checkSignup();" novalidate>
-        <label for="fullname">Full Name:</label>
+      <form id="signup-form" onsubmit="return checkSignup();" novalidate><!--sing up form-->
+        <label for="fullname">Full Name:</label><!--the full name is required and placeholder will show in the box "Enter your full name"-->
         <input type="text" id="fullname" name="fullname"
          placeholder="Enter your full name" required>
 
-        <label for="nationalid">National ID:</label>
+        <label for="nationalid">National ID:</label><!--the national id is required and placeholder will show in the box "Enter your National ID"-->
         <input type="text" id="nationalid" name="nationalid"
                placeholder="Enter your National ID" required>
 
-        <label for="phone">Phone Number:</label>
+        <label for="phone">Phone Number:</label><!--the phone is required and placeholder will show in the box "05XXXXXXXX"-->
         <input type="tel" id="phone" name="phone"
-               placeholder="05XXXXXXXX" pattern="[0-9]{10}" required>
+               placeholder="05XXXXXXXX" pattern="[0-9]{10}" required><!--it mean ten number each number between 0 and 9-->
 
-        <label for="signup-email">Email:</label>
+        <label for="signup-email">Email:</label><!--the email is required and placeholder will show in the box "name@stu.kau.edu.sa"-->
         <input type="email" id="signup-email" name="email"
                placeholder="name@stu.kau.edu.sa" required>
 
-        <label for="signup-password">Password:</label>
+        <label for="signup-password">Password:</label><!--the Password is required and placeholder will show in the box "Enter your password"-->
         <input type="password" id="signup-password" name="password"
-               placeholder="Enter your password" minlength="6" required>
+               placeholder="Enter your password" minlength="6" required><!--the min length is 6 so password need to be 6 or more-->
 
-        <label for="confirm">Confirm Password:</label>
+        <label for="confirm">Confirm Password:</label><!--the Confirm Password is required and placeholder will show in the box "Re-enter your password"-->
         <input type="password" id="confirm" name="confirm"
-               placeholder="Re-enter your password" minlength="6" required>
+               placeholder="Re-enter your password" minlength="6" required><!--the min length is 6 so Confirm password need to be 6 or more-->
 
         <label class="inline">
-          <input type="checkbox" id="terms" name="terms" required>
-          I agree to the <a href="#">terms and conditions</a>.
+          <input type="checkbox" id="terms" name="terms" required><!--agree checkbox is required -->
+          I agree to the <a href="#">terms and conditions</a>.<!--if user want learn more he can click the link-->
         </label>
-
+        <!--we use div to keep the button in the same block for the css style-->
         <div class="form-actions">
           <input type="submit" value="Sign Up">
           <input type="reset" value="Clear" onclick="clearSignupMessage()">
         </div>
 
+        <!--this paragraph will display success or error messages from js-->
         <p class="form-message" id="signup-message"></p>
       </form>
 
-      <p>Already have an account? <a href="login.html">Login here</a>.</p>
+      <p>Already have an account? <a href="login.html">Login here</a>.</p><!--if the user already have an acc he can go to Login page-->
     </section>
   </main>
-
+<!--in the footer to links one for go back to home and one for go back to the top of the page-->
   <footer>
     <a href="#top">Back to top</a> |
     <a href="index.html">Back to Home</a>

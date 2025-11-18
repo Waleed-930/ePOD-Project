@@ -12,6 +12,7 @@
 
 <body>
   <header>
+    <!--these are the page links inside an unordered list-->
     <nav aria-label="Main navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -24,17 +25,18 @@
 
   <main id="top">
     <figure>
-      <img src="epod-1.png" alt="ePOD dashboard with paper forms removed" width="500" height="500"
-        usemap="#epodMapAbout">
-      <map name="epodMapAbout">
-        <area shape="rect" coords="0,0,500,500" href="about.html" alt="About this project">
-      </map>
+    <a href="about.html"> <!--when user clicks the image it will go to About Us becuse we did it as a link-->
+    <img src="epod-1.png" 
+    alt="About the ePOD Project" 
+    width="500"
+    height="500"><!--the image width is 500 and the height is 500 if the image did not show it will show "About the ePOD Project"-->
+    </a>
       <figcaption>
-        <em>The picture represents the move from old delivery forms to the ePOD system.</em>
+        <em>The picture represents the move from old delivery forms to the ePOD system.</em><!--it like a note for the image-->
       </figcaption>
     </figure>
 
-    <section id="intro">
+    <section id="intro"><!--this is the intro section h1 is the title of the paragraph and in the paragraph we use strong for the bolt and em to make it italic-->
       <h1>About the ePOD Project</h1>
       <p>
         The <strong>Electronic Proof of Delivery (ePOD)</strong> system is a course project for
@@ -44,7 +46,7 @@
       </p>
     </section>
 
-    <section id="mission">
+    <section id="mission"><!--this is the mission section h2 is the title of the section we put an unordered list and a paragraph and used strong to make sure the user reads it-->
       <h2>Project Objectives</h2>
       <ul>
         <li>Digitize and simplify the delivery confirmation process.</li>
@@ -59,16 +61,20 @@
       </p>
     </section>
 
-    <section id="team">
-      <h2>Meet the Team</h2>
-      <p>
+    <section id="team"><!--this is team section that speak about us-->
+      <h2>Meet the Team</h2><!--this is the title of the section-->
+      <p><!--small paragraph about us-->
         This project is developed by a student group from the Faculty of Computing and
         Information Technology, King Abdulaziz University.
       </p>
 
-
+      <!--a table that has developers information-->
       <table>
-        <thead>
+        
+ <caption style="caption-side: top; font-weight: bold; padding: 5px;">
+    Team Members Information
+  </caption><!--table title-->
+        <thead><!--the head of the table-->
           <tr>
             <th>Member Name</th>
             <th>Student ID</th>
@@ -77,23 +83,30 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr><!--the firest row-->
             <td>Waleed Allehaibi</td>
             <td>2359374</td>
-            <td>wallehaibi0001@stu.kau.edu.sa</td>
+            <td><a href="mailto:wallehaibi0001@stu.kau.edu.sa">wallehaibi0001@stu.kau.edu.sa</a></td>
             <td>Developer</td>
           </tr>
-          <tr>
+          <tr><!--the second row-->
             <td>Sarria Dalati</td>
             <td>2364989</td>
-            <td>sdalati@stu.kau.edu.sa</td>
+            <td><a href="mailto:sdalati@stu.kau.edu.sa">sdalati@stu.kau.edu.sa</a></td><!--to map it with the email-->
             <td>Developer</td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr><!--the footer of the table-->
+            <td colspan="4" style="text-align: center; font-style: italic;"><!--inline css to center the text and make it italic using colspan to span across all columns in the row-->
+              ePOD Developers information
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </section>
   </main>
-
+<!--in the footer to links one for go back to home and one for go back to the top of the page-->
   <footer>
     <a href="#top">Back to top</a><br />
     <a href="index.html">Back to Home</a>
