@@ -1,133 +1,134 @@
-/* page style */
+/*this block sets the page background font and basic text color and margin*/
 body {
   background-color: #f4f4f4;
   font-family: Arial, sans-serif;
-  margin: 0;
+/*removes the default page margin*/
+  margin: 0em;
   color: #222;
 }
 
 /* header and navigation */
 header {
-  background-color: #2b3a55;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  position: relative;  
-  z-index: 2;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+  background-color: #2b3a55;/*dark blue background*/
+  color: white;/*white text*/
+  text-align: center;/*centers text*/
+  padding: 10px 0;/*10px top & bottom, 0 left & right*/
+  position: relative;/*change the position*/  
+  z-index: 3;/*puts the header above other*/
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  list-style: none;/*removes the points from the list*/
+  margin: 0;/*removes the default outer space of the list*/
+  padding: 0;/*removes the default inner space of the list*/
 }
 
 nav li {
-  display: inline-block;
-  margin: 0 8px;
+  display: inline-block;/*shows each item next to other*/
+  margin: 0 8px;/*adds 8px space left and right, 0 top and bottom*/
 }
 
 nav a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
+  color: white;/*makes the link text white*/
+  text-decoration: none;/*removes the underline from the link*/
+  font-size: 0.95rem;/*smaller text size*/
 }
 
 nav a:hover,
 nav a[aria-current="page"] {
-  text-decoration: underline;
+  text-decoration: underline;/*adds underline on hover or active page*/
 }
 
 /* main content*/
 main {
-  background-color: white;
-  width: 90%;
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  position: relative;
-  z-index: 1;
+  background-color: white;/*white background*/
+  width: 90%;/*the box take 90% of the page width*/
+  max-width: 900px;/*the max width the box can go to it*/
+  margin: 20px auto;/*20px top/bottom and centers it horizontally*/
+  padding: 20px;/*space inside the box on all sides*/
+  border: 1px solid #ccc;/*a light gray border */
+  position: relative;/*change the position*/ 
+  z-index: 1;/*this box above lower layers*/
 }
 
 /* headings */
 h1,
 h2 {
-  color: #2b3a55;
+  color: #2b3a55; /*sets heading color*/
 }
 
 #hero {
-  text-align: left;
-  margin-bottom: 20px;
+  text-align: left;/*aligns text to the left*/
+  margin-bottom: 20px; /*adds space under the hero section*/
 }
 
 .hero-note {
-  font-size: 0.95rem;
-  color: #555;
+  font-size: 0.95rem;/*small text*/
+  color: #555;/*soft gray color*/
 }
 
-/* figure */
+/*this block styles images and captions*/
 figure {
   margin: 10px 0 20px;
-  text-align: center;
+  text-align: center;/*centers the image*/
 }
 
 figure img {
-  max-width: 100%;
+  max-width: 100%;/*makes the image responsive*/
   height: auto;
 }
 
 figcaption {
-  font-size: 0.85rem;
+  font-size: 0.85rem;/*small caption text*/
   color: #555;
 }
 
 /* buttons */
 .btn-primary,
 .btn-secondary {
-  display: inline-block;
-  padding: 8px 14px;
-  margin: 10px 6px 0 0;
-  border-radius: 4px;
-  text-decoration: none;
+  display: inline-block; /*makes the link look like a button*/
+  padding: 8px 14px;/*adds space inside the button*/
+  margin: 10px 6px 0 0;/*adds space outside the button*/
+  border-radius: 4px;/*rounds the button corners*/
+  text-decoration: none;/*removes underline*/
   font-size: 0.95rem;
 }
 
 .btn-primary {
-  background-color: #2b3a55;
-  color: #fff;
+  background-color: #2b3a55;/*blue button*/
+  color: #fff;/*white text*/
 }
 
 .btn-secondary {
-  background-color: #fff;
-  color: #2b3a55;
-  border: 1px solid #2b3a55;
+  background-color: #fff;/*white background*/
+  color: #2b3a55; /*dark blue text*/
+  border: 1px solid #2b3a55;/*blue border*/
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
-  opacity: 0.9;
+  opacity: 0.9;/*slight fade on hover*/
 }
 
 /* form */
+/*this block styles the whole form and all input fields*/
 form {
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   padding: 15px;
   border-radius: 4px;
 }
-
+/*this block styles form labels*/
 label {
   display: block;
   margin-top: 10px;
 }
-
+/*this block shows the label inline next to inputs*/
 label.inline {
   display: inline-block;
   margin-top: 12px;
 }
-
+/*this block styles all text, email, password, tel fields, and select menus*/
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -140,7 +141,7 @@ select {
   border-radius: 3px;
   box-sizing: border-box;
 }
-
+/*this block styles submit, reset, and normal buttons*/
 input[type="submit"],
 input[type="reset"],
 button {
@@ -150,25 +151,25 @@ button {
   padding: 8px 16px;
   margin-top: 12px;
   margin-right: 8px;
-  cursor: pointer;
+  cursor: pointer;/*shows a hand mouse cursor to indicate it's clickable*/
   border-radius: 3px;
   font-size: 0.9rem;
 }
-
+/*this block gives the reset button a gray background*/
 input[type="reset"] {
   background-color: #999;
 }
-
+/*this block adds hover effect to all form buttons*/
 input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover {
-  opacity: 0.9;
+  opacity: 0.9;/*makes the element slightly transparent on hover*/
 }
-
+/*this block adds spacing above the form action buttons*/
 .form-actions {
   margin-top: 10px;
 }
-
+/*this block styles small form messages under the inputs*/
 .form-message {
   margin-top: 10px;
   font-size: 0.9rem;
@@ -176,64 +177,67 @@ button:hover {
 
 /* table */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+  width: 100%;/*makes the table full width*/
+  border-collapse: collapse;/*removes space between table cells*/
+  margin-top: 10px;/*adds space above the table*/
 }
-
+/*styles table header and cells*/
 th,
 td {
-  border: 1px solid #ccc;
-  padding: 6px;
-  text-align: left;
+  border: 1px solid #ccc;/*adds light border around cells*/
+  padding: 6px;/*adds space inside each cell*/
+  text-align: left;/*aligns text to the left*/
 }
-
+/*styles the table header row*/
 th {
-  background-color: #2b3a55;
-  color: white;
+  background-color: #2b3a55;/*dark background for header*/
+  color: white;/*white text for header*/
 }
 
 /* dashboard */
+/* Styles the container for the stats cards */
 .stats-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 10px 0 15px;
+  display: flex;/*places cards in a row*/
+  flex-wrap: wrap;/*allows cards to move to next line*/
+  gap: 10px;/*space between cards*/
+  margin: 10px 0 15px;/*space around the grid*/
 }
 
 .stat-card {
-  flex: 1 1 120px;
-  background-color: #f9fafb;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  padding: 10px;
-  text-align: center;
+  flex: 1 1 120px; /*card grows but min width is 120px*/
+  background-color: #f9fafb;/*light background for card*/
+  border: 1px solid #d1d5db;/*light border*/
+  border-radius: 6px;/*rounded corners*/
+  padding: 10px;/*space inside the card*/
+  text-align: center;/*centers the text*/
 }
-
+/*Styles the large number in the card*/
 .stat-number {
-  display: block;
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: #111827;
+  display: block;/*forces it to be on its own line*/
+  font-size: 1.4rem; /*makes number bigger*/
+  font-weight: bold;/*bold text*/
+  color: #111827;/*dark text color*/
 }
-
+/*Styles the label text under the number*/
 .stat-label {
-  font-size: 0.85rem;
-  color: #4b5563;
+  font-size: 0.85rem;/*smaller text*/
+  color: #4b5563;/*gray color*/
 }
-
+/*Styles small filter text row*/
 .filter-row {
-  margin: 10px 0;
-  font-size: 0.95rem;
+  margin: 10px 0;/*adds space above and below*/
+  font-size: 0.95rem;/*slightly bigger text*/
 }
 
 /* class */
+/*small text*/
 .small-note {
   font-size: 0.85rem;
   color: #555;
 }
 
 /* footer */
+/*styles the bottom footer section*/
 footer {
   background-color: #dfe0e2;
   color: #333;
@@ -242,43 +246,27 @@ footer {
   margin-top: 20px;
   font-size: 0.85rem;
 }
-
+/*footer links style*/
 footer a {
   color: #2b3a55;
   text-decoration: none;
 }
-
+/*underline link on hover*/
 footer a:hover {
   text-decoration: underline;
 }
 
-/* 1 */
+/*adds rounded corners*/
 .rounded {
   border-radius: 5px;
 }
-
+/*centers the text*/
 .center {
   text-align: center;
 }
 
-/* 2 */
-@media (max-width: 600px) {
-  nav li {
-    display: block;
-    margin: 4px 0;
-  }
-
-  main {
-    width: 95%;
-    padding: 15px;
-  }
-
-  .stats-grid {
-    flex-direction: column;
-  }
-}
-
 /* button in table */
+/* Green sign button */
 .btn-sign {
   padding: 4px 8px;
   font-size: 0.85rem;
@@ -289,10 +277,11 @@ footer a:hover {
   cursor: pointer;
 }
 
+/* Slight fade on hover */
 .btn-sign:hover {
   opacity: 0.9;
 }
-
+/* Green signed label text */
 .signed-label {
   font-size: 0.85rem;
   color: #16a34a;
